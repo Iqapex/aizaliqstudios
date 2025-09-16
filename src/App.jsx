@@ -14,7 +14,7 @@ import FuturePlans from "./pages/FuturePlans";
 import Contact from "./pages/Contact";
 
 // 🔑 Auth pages
-import Signup from "./pages/Signup";
+import Signup from "./pages/SignUp";
 import Signin from "./pages/Signin";
 import Dashboard from "./pages/Dashboard";
 
