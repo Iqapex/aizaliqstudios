@@ -1,0 +1,114 @@
+.benefits-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #fefefe, #f4f8fb);
+  color: #1a1a1a;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.benefits-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-content {
+  flex: 1;
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #232f3e; /* Amazon dark */
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.benefit-point {
+  background: #ffffff;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border-left: 5px solid #ffb703;
+  position: relative;
+}
+
+.benefit-point:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+  color: #007185; /* Amazon blue */
+  font-weight: 600;
+}
+
+.image-box {
+  flex: 1;
+  text-align: center;
+  animation: fadeInRight 1s ease-in-out;
+}
+
+.image-box img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-box img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .benefits-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .benefit-point {
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .image-box img {
+    max-width: 100%;
+  }
+}

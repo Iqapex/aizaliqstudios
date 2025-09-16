@@ -1,0 +1,127 @@
+:root {
+  --tech-bg: linear-gradient(135deg, #e3f2fd, #ffffff);
+  --tech-card-bg: #ffffff;
+  --tech-title-color: #3A0CA3;
+  --tech-subtitle-color: #4361EE;
+  --tech-text-color: #333;
+  --tech-hover-color: rgba(0, 0, 0, 0.15);
+  --tech-shadow: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] {
+  --tech-bg: linear-gradient(135deg, #1a1a1a, #222);
+  --tech-card-bg: #2a2a2a;
+  --tech-title-color: #ff9900;
+  --tech-subtitle-color: #ffa41c;
+  --tech-text-color: #eaeaea;
+  --tech-hover-color: rgba(255, 255, 255, 0.15);
+  --tech-shadow: rgba(255, 255, 255, 0.06);
+}
+
+.technology-section {
+  padding: 4rem 2rem;
+  background: var(--tech-bg);
+  text-align: center;
+  color: var(--tech-text-color);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.tech-header h2 {
+  font-size: 2.5rem;
+  color: var(--tech-title-color);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.6s ease-out;
+  font-weight: 600;
+}
+
+.tech-header p {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: var(--tech-text-color);
+  font-size: 1.1rem;
+  opacity: 0.85;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.tech-card {
+  background: var(--tech-card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 300px;
+  box-shadow: 0 10px 20px var(--tech-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 0.8s ease;
+  text-align: center;
+}
+
+.tech-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 30px var(--tech-hover-color);
+}
+
+.tech-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+.tech-card h3 {
+  color: var(--tech-subtitle-color);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.tech-card p {
+  font-size: 0.95rem;
+  color: var(--tech-text-color);
+  opacity: 0.9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tech-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tech-card {
+    width: 90%;
+  }
+
+  .tech-header h2 {
+    font-size: 2rem;
+  }
+}

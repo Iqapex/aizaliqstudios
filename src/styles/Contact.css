@@ -1,0 +1,126 @@
+.contact-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #ffffff, #f4f8fb);
+  color: #1a1a1a;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #232f3e; /* Amazon dark text */
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+.contact-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  flex: 1;
+  text-align: left;
+  font-size: 1.1rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info p {
+  margin: 0.75rem 0;
+}
+
+.contact-info a {
+  color: #007185; /* Amazon link blue */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ff9900;
+  box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.2);
+  outline: none;
+}
+
+.contact-form button {
+  background-color: #ff9900;
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #f08804;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}

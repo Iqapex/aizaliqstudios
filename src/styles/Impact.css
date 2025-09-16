@@ -1,0 +1,85 @@
+.impact-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #e8f5e9, #f9f9ff);
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3A0CA3;
+  margin-bottom: 3rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.impact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.impact-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  width: 280px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.impact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15);
+  border-color: #FFD60A;
+}
+
+.impact-icon {
+  font-size: 2.5rem;
+  color: #FFD60A;
+  margin-bottom: 1rem;
+}
+
+.impact-card h3 {
+  font-size: 1.3rem;
+  color: #0077b6;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.impact-card p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .impact-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .impact-card {
+    width: 90%;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}

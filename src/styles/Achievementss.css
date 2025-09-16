@@ -1,0 +1,130 @@
+:root {
+  --achieve-bg: linear-gradient(to bottom right, #ffffff, #f0f4ff);
+  --achieve-title: #3A0CA3;
+  --achieve-subtitle: #444;
+  --achieve-card-bg: #fff;
+  --achieve-card-title: #4361EE;
+  --achieve-card-text: #333;
+  --achieve-shadow: rgba(0, 0, 0, 0.1);
+  --achieve-hover-shadow: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] {
+  --achieve-bg: linear-gradient(to bottom right, #1a1a1a, #2a2a2a);
+  --achieve-title: #FFD60A;
+  --achieve-subtitle: #ccc;
+  --achieve-card-bg: #2d2d2d;
+  --achieve-card-title: #90AFFF;
+  --achieve-card-text: #eee;
+  --achieve-shadow: rgba(255, 255, 255, 0.06);
+  --achieve-hover-shadow: rgba(255, 255, 255, 0.12);
+}
+
+.achievements-section {
+  padding: 4rem 2rem;
+  background: var(--achieve-bg);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.achievements-title {
+  font-size: 2.5rem;
+  color: var(--achieve-title);
+  margin: 1rem 0 0.5rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.achievements-subtitle {
+  font-size: 1.1rem;
+  color: var(--achieve-subtitle);
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.achievements-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.achievement-card {
+  background-color: var(--achieve-card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 300px;
+  box-shadow: 0 8px 20px var(--achieve-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 1s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px var(--achieve-hover-shadow);
+}
+
+.achievement-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
+.achievement-card h3 {
+  color: var(--achieve-card-title);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.achievement-card p {
+  font-size: 0.95rem;
+  color: var(--achieve-card-text);
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .achievements-title {
+    font-size: 2rem;
+  }
+
+  .achievements-subtitle {
+    font-size: 1rem;
+  }
+
+  .achievements-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .achievement-card {
+    width: 90%;
+  }
+}

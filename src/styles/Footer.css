@@ -1,0 +1,177 @@
+/* Footer Base */
+.aizaliq-footer {
+  background: linear-gradient(135deg, #1e2a38, #0d1721);
+  color: #f1f1f1;
+  padding: 3rem 2rem 1.5rem;
+  font-family: "Segoe UI", sans-serif;
+  position: relative;
+  overflow-x: hidden;  /* ✅ Fix unwanted horizontal scroll */
+  max-width: 100%;     /* ✅ Prevent content overflow */
+  box-sizing: border-box;
+}
+
+/* Decorative Glow */
+.aizaliq-footer::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%); /* ✅ Center glow so it doesn’t overflow */
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 153, 0, 0.25);
+  border-radius: 50%;
+  filter: blur(150px);
+  z-index: 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;          /* ✅ Keep inside screen */
+  box-sizing: border-box;
+}
+
+/* Brand */
+.brand h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  white-space: nowrap; /* ✅ Prevent text overflow */
+}
+
+.brand h3 span {
+  color: #ff9900;
+}
+
+.brand p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* Quick Links */
+.footer-links h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #ff9900;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.7rem;
+}
+
+.footer-links ul li a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-links ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background: #ff9900;
+  transition: width 0.3s ease-in-out;
+}
+
+.footer-links ul li a:hover {
+  color: #ff9900;
+}
+
+.footer-links ul li a:hover::after {
+  width: 100%;
+}
+
+/* Socials */
+.footer-socials h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #ff9900;
+}
+
+.footer-socials p {
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  opacity: 0.85;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap; /* ✅ Prevents overflow on small screens */
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 153, 0, 0.1);
+  color: #f1f1f1;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 153, 0, 0.2);
+}
+
+.social-icons a:hover {
+  background: #ff9900;
+  color: #0d1721;
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 6px 15px rgba(255, 153, 0, 0.3);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aizaliq-footer {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .brand h3 {
+    font-size: 1.4rem;
+  }
+
+  .footer-links h4,
+  .footer-socials h4 {
+    font-size: 1rem;
+  }
+
+  .footer-links ul li a {
+    font-size: 0.9rem;
+  }
+
+  .social-icons a {
+    font-size: 1rem;
+    width: 36px;
+    height: 36px;
+  }
+}

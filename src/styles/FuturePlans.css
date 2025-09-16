@@ -1,0 +1,128 @@
+:root {
+  --bg-light: linear-gradient(to right, #f0f4ff, #fafafa);
+  --primary: #3A0CA3;
+  --text: #333;
+  --subtext: #555;
+}
+
+[data-theme="dark"] {
+  --bg-light: linear-gradient(to right, #1e1e2f, #2b2b3a);
+  --primary: #ffd60a;
+  --text: #eee;
+  --subtext: #aaa;
+}
+
+.future-section {
+  padding: 4rem 2rem;
+  background: var(--bg-light);
+  transition: background 0.4s ease;
+}
+
+.future-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.future-header h2 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  animation: fadeIn 1s ease;
+}
+
+.future-header p {
+  font-size: 1.1rem;
+  color: var(--subtext);
+  max-width: 700px;
+  margin: 0 auto;
+  animation: fadeIn 1.2s ease;
+}
+
+.future-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.future-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  animation: slideUp 0.8s ease-in-out;
+}
+
+.future-row.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.future-image img {
+  width: 450px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.future-image img:hover {
+  transform: scale(1.05);
+}
+
+.future-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.future-text h3 {
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.future-text p {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .future-row,
+  .future-row.row-reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .future-image img {
+    width: 100%;
+  }
+
+  .future-text {
+    text-align: center;
+  }
+}

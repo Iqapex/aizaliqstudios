@@ -1,0 +1,118 @@
+:root {
+  --scenario-bg: linear-gradient(145deg, #f0f4ff, #d4e1ff);
+  --scenario-text: #1f1f1f;
+  --scenario-heading: #3A0CA3;
+  --scenario-hover: #4361EE;
+  --scenario-shadow: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] {
+  --scenario-bg: linear-gradient(145deg, #1f1f1f, #2a2a2a);
+  --scenario-text: #e5e5e5;
+  --scenario-heading: #ff9900;
+  --scenario-hover: #ffa41c;
+  --scenario-shadow: rgba(255, 255, 255, 0.08);
+}
+
+.scenario {
+  padding: 4rem 2rem;
+  background: var(--scenario-bg);
+  color: var(--scenario-text);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.scenario-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.scenario-text {
+  flex: 1 1 500px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.scenario-text h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  color: var(--scenario-heading);
+  font-weight: 600;
+}
+
+.scenario-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--scenario-text);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.scenario-text p:hover {
+  transform: translateX(5px);
+  color: var(--scenario-hover);
+}
+
+.scenario-image {
+  flex: 1 1 400px;
+  text-align: center;
+  animation: zoomIn 1s ease-in-out;
+}
+
+.scenario-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px var(--scenario-shadow);
+  transition: transform 0.4s ease;
+}
+
+.scenario-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scenario-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .scenario-text h2 {
+    font-size: 2rem;
+  }
+
+  .scenario-text p {
+    font-size: 1rem;
+  }
+
+  .scenario-image img {
+    max-width: 100%;
+  }
+}
