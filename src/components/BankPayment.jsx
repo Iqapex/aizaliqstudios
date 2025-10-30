@@ -14,14 +14,25 @@ const BankPayment = () => {
     note: "",
   });
 
+  // ✅ Vite-friendly API variable
   const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   const confirmPayment = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${API}/api/pay/bank`, { plan, ...form });
-      const subscriptionId = res.data.subscriptionId;
-      alert(`✅ Payment successful for ${plan} plan!`);
+      // ✅ Corrected API endpoint and payload
+      const { data } = await axios.post(`${API}/api/pay/bank`, {
+        plan,
+        payerName: form.payerName,
+        accountNumber: form.accountNumber,
+        bankName: form.bankName,
+        note: form.note,
+      });
+
+      const subscriptionId = data?.subscriptionId;
+      if (!subscriptionId) throw new Error("Subscription ID not received");
+
+      alert("✅ Payment details submitted successfully!");
       nav(`/signup?planId=${subscriptionId}&plan=${plan}`);
     } catch (err) {
       console.error(err);
@@ -29,23 +40,22 @@ const BankPayment = () => {
     }
   };
 
+
   return (
     <div className="container">
-      <h2>Bank Payment — {plan}</h2>
-      <p className="small">
-        Enter your payment details below (mock bank payment page).
-      </p>
+      <h2>Bank Payment for {plan.toUpperCase()} Plan</h2>
+      <p>Please transfer the amount to the account below and confirm:</p>
 
       <div style={{ marginTop: 12 }}>
         <div style={{ marginBottom: 8, textAlign: "left" }}>
           <strong>Our Bank Details:</strong>
           <div>Account Name: Aizaliq Studios</div>
           <div>Account Number: 1234567890</div>
-          <div>Bank: Demo Bank</div>
-          <div>IFSC: DEMO0001234</div>
+          <div>Bank: State Bank of India</div>
+          <div>IFSC: SBIN0001234</div>
         </div>
 
-        <form className="form" onSubmit={confirmPayment}>
+        <form onSubmit={confirmPayment}>
           <input
             className="input"
             value={form.payerName}
@@ -57,7 +67,9 @@ const BankPayment = () => {
             className="input"
             value={form.accountNumber}
             placeholder="Your Account Number"
-            onChange={(e) => setForm({ ...form, accountNumber: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, accountNumber: e.target.value })
+            }
             required
           />
           <input

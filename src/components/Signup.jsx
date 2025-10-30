@@ -1,66 +1,68 @@
 import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/SignUp.css';
+import '../styles/Signup.css';
 
 const Signup = () => {
   const [q] = useSearchParams();
   const planId = q.get('planId');
   const plan = q.get('plan');
-  const nav = useNavigate();
-  const [form, setForm] = useState({ name: '', email: '', password: '' });
-  const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
-  const submit = async (e) => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API}/api/auth/register`, {
-        name: form.name,
-        email: form.email,
-        password: form.password,
-        planId,
-      });
-      alert('Signup successful! Please login to continue.');
-      nav(`/login?plan=${plan}`);
+      await axios.post('http://localhost:5000/api/auth/register', { ...formData, planId });
+      navigate('/login');
     } catch (err) {
-      console.error(err);
-      alert(err.response?.data?.message || 'Signup failed');
+      setError(err.response?.data?.message || 'Signup failed. Try again.');
     }
   };
 
   return (
-    <div className="container">
-      <h2>Sign Up {plan ? `- ${plan}` : ''}</h2>
-      <form onSubmit={submit} className="form">
+    <div className="signup-container">
+      <h2>Signup {plan && `for ${plan}`}</h2>
+      <form onSubmit={handleSubmit} className="signup-form">
         <input
-          className="input"
-          value={form.name}
+          type="text"
+          name="name"
           placeholder="Full Name"
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          value={formData.name}
+          onChange={handleChange}
           required
-          autoComplete="name"
         />
         <input
-          className="input"
           type="email"
-          value={form.email}
-          placeholder="Email Address"
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
           required
-          autoComplete="email"
         />
         <input
-          className="input"
           type="password"
-          value={form.password}
-          placeholder="Create Password"
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
           required
-          autoComplete="new-password"
         />
-        <button className="btn" type="submit">
-          Sign Up
-        </button>
+        {error && <p className="error">{error}</p>}
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );

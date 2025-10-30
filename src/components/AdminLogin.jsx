@@ -11,35 +11,42 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${API}/api/admin/login`, form);
+      const res = await axios.post(`${API}/api/auth/admin-login`, form);
       localStorage.setItem("token", res.data.token);
-      alert("Admin login successful");
-      nav("/admin/dashboard");
+      alert("Admin login successful!");
+      nav("/admin-dashboard"); // ✅ navigate to dashboard
     } catch (err) {
       console.error(err);
-      alert("Invalid admin credentials");
+      alert(err.response?.data?.message || "Invalid admin credentials");
     }
   };
 
   return (
     <div className="auth-container">
-      <form onSubmit={handleSubmit} className="auth-form">
+      <form className="auth-form" onSubmit={handleSubmit}>
         <h2>Admin Login</h2>
+
         <input
+          className="input"
           type="email"
           placeholder="Admin Email"
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           required
         />
+
         <input
+          className="input"
           type="password"
           placeholder="Admin Password"
           value={form.password}
           onChange={(e) => setForm({ ...form, password: e.target.value })}
           required
         />
-        <button type="submit">Login</button>
+
+        <button className="btn" type="submit">
+          Sign In
+        </button>
       </form>
     </div>
   );

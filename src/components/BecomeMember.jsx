@@ -21,8 +21,8 @@ const BecomeMember = () => {
     <div className="container">
       <h2>Become a Member</h2>
       <p className="small">
-        Choose a plan and click <strong>Pay Now</strong>. You will be redirected
-        to a secure bank payment page to enter your details.
+        Choose a plan and click <strong>Pay Now</strong>. You’ll be redirected to
+        the secure bank payment page to complete your details.
       </p>
 
       <div className="plans">

@@ -5,6 +5,7 @@ import "../styles/AdminPanel.css";
 const AdminPanel = () => {
   const [users, setUsers] = useState([]);
   const [subs, setSubs] = useState([]);
+
   const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
   const token = localStorage.getItem("token");
 
@@ -98,12 +99,16 @@ const AdminPanel = () => {
               <td>{s.status}</td>
               <td>{s.payerDetails?.payerName || "N/A"}</td>
               <td>
-                <button className="btn" onClick={() => updateSub(s._id, "active")}>
+                <button
+                  className="btn"
+                  onClick={() => updateSub(s._id, "active")}
+                >
                   Activate
                 </button>
                 <button
                   className="btn cancel-btn"
                   onClick={() => updateSub(s._id, "cancelled")}
+                  style={{ marginLeft: 8 }}
                 >
                   Cancel
                 </button>
