@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/Dashboard.css";
 
-export default function Dashboard() {
+const Dashboard = () => {
   const [user, setUser] = useState(null);
   const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
@@ -13,7 +13,9 @@ export default function Dashboard() {
       return;
     }
     axios
-      .get(`${API}/api/auth/me`, { headers: { Authorization: `Bearer ${token}` } })
+      .get(`${API}/api/auth/me`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
         setUser(res.data);
         localStorage.setItem("user", JSON.stringify(res.data));
@@ -89,9 +91,7 @@ export default function Dashboard() {
             <div
               className="progress"
               style={{
-                width: user?.subscription
-                  ? "70%"
-                  : "10%",
+                width: user?.subscription ? "70%" : "10%",
               }}
             ></div>
           </div>
@@ -116,12 +116,30 @@ export default function Dashboard() {
         <h4>Get access to 100+ LLMs with higher AI Credit Limit.</h4>
         <div className="llm-icons">
           {[
-            { name: "ChatGPT", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT58UpQdoq4AcJGMdJYoIJ8qHApwhXHDj7auQ&s" },
-            { name: "Claude", img: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Claude_AI_symbol.svg" },
-            { name: "Gemini", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThr7qrIazsvZwJuw-uZCtLzIjaAyVW_ZrlEQ&s" },
-            { name: "DeepSeek", img: "https://toffeedev.com/wp-content/uploads/2025/03/deepseek-1.webp" },
-            { name: "Perplexity", img: "https://heute-at-prod-images.imgix.net/2025/01/28/ecafc8cd-84cf-4fac-a8f6-d980cffe040d.jpeg?rect=0%2C200%2C3000%2C1687&auto=format" },
-            { name: "Grok", img: "https://images.seeklogo.com/logo-png/61/2/grok-logo-png_seeklogo-613403.png" },
+            {
+              name: "ChatGPT",
+              img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT58UpQdoq4AcJGMdJYoIJ8qHApwhXHDj7auQ&s",
+            },
+            {
+              name: "Claude",
+              img: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Claude_AI_symbol.svg",
+            },
+            {
+              name: "Gemini",
+              img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThr7qrIazsvZwJuw-uZCtLzIjaAyVW_ZrlEQ&s",
+            },
+            {
+              name: "DeepSeek",
+              img: "https://toffeedev.com/wp-content/uploads/2025/03/deepseek-1.webp",
+            },
+            {
+              name: "Perplexity",
+              img: "https://heute-at-prod-images.imgix.net/2025/01/28/ecafc8cd-84cf-4fac-a8f6-d980cffe040d.jpeg?rect=0%2C200%2C3000%2C1687&auto=format",
+            },
+            {
+              name: "Grok",
+              img: "https://images.seeklogo.com/logo-png/61/2/grok-logo-png_seeklogo-613403.png",
+            },
           ].map((llm, i) => (
             <div className="llm-item" key={i}>
               <img src={llm.img} alt={llm.name} />
@@ -162,4 +180,6 @@ export default function Dashboard() {
       </div>
     </div>
   );
-}
+};
+
+export default Dashboard;

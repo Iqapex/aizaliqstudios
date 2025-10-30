@@ -1,9 +1,9 @@
-import axios from 'axios';
-import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import axios from 'axios';
 import '../styles/SignUp.css';
 
-export default function Signup() {
+const Signup = () => {
   const [q] = useSearchParams();
   const planId = q.get('planId');
   const plan = q.get('plan');
@@ -64,4 +64,6 @@ export default function Signup() {
       </form>
     </div>
   );
-}
+};
+
+export default Signup;

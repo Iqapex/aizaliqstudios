@@ -1,20 +1,20 @@
-import axios from 'axios';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import axios from "axios";
 
-export default function BankPayment() {
+const BankPayment = () => {
   const [q] = useSearchParams();
-  const plan = q.get('plan') || 'basic';
+  const plan = q.get("plan") || "basic";
   const nav = useNavigate();
+
   const [form, setForm] = useState({
-    payerName: '',
-    accountNumber: '',
-    bankName: '',
-    note: ''
+    payerName: "",
+    accountNumber: "",
+    bankName: "",
+    note: "",
   });
 
-  // ✅ Vite-friendly API variable
-  const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   const confirmPayment = async (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ export default function BankPayment() {
       nav(`/signup?planId=${subscriptionId}&plan=${plan}`);
     } catch (err) {
       console.error(err);
-      alert('❌ Payment failed. Please try again.');
+      alert("❌ Payment failed. Please try again.");
     }
   };
 
@@ -37,7 +37,7 @@ export default function BankPayment() {
       </p>
 
       <div style={{ marginTop: 12 }}>
-        <div style={{ marginBottom: 8, textAlign: 'left' }}>
+        <div style={{ marginBottom: 8, textAlign: "left" }}>
           <strong>Our Bank Details:</strong>
           <div>Account Name: Aizaliq Studios</div>
           <div>Account Number: 1234567890</div>
@@ -50,32 +50,36 @@ export default function BankPayment() {
             className="input"
             value={form.payerName}
             placeholder="Your Name"
-            onChange={e => setForm({ ...form, payerName: e.target.value })}
+            onChange={(e) => setForm({ ...form, payerName: e.target.value })}
             required
           />
           <input
             className="input"
             value={form.accountNumber}
             placeholder="Your Account Number"
-            onChange={e => setForm({ ...form, accountNumber: e.target.value })}
+            onChange={(e) => setForm({ ...form, accountNumber: e.target.value })}
             required
           />
           <input
             className="input"
             value={form.bankName}
             placeholder="Your Bank Name"
-            onChange={e => setForm({ ...form, bankName: e.target.value })}
+            onChange={(e) => setForm({ ...form, bankName: e.target.value })}
             required
           />
           <input
             className="input"
             value={form.note}
             placeholder="Optional Note (e.g., Transaction ID)"
-            onChange={e => setForm({ ...form, note: e.target.value })}
+            onChange={(e) => setForm({ ...form, note: e.target.value })}
           />
-          <button className="btn" type="submit">Confirm Payment</button>
+          <button className="btn" type="submit">
+            Confirm Payment
+          </button>
         </form>
       </div>
     </div>
   );
-}
+};
+
+export default BankPayment;

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../styles/Admin.css"; // make sure CSS is in /src/styles/Admin.css
+import "../styles/Admin.css"; // make sure CSS file exists in /src/styles/
 
-export default function AdminLogin() {
+const AdminLogin = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const nav = useNavigate();
   const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
@@ -43,4 +43,6 @@ export default function AdminLogin() {
       </form>
     </div>
   );
-}
+};
+
+export default AdminLogin;
