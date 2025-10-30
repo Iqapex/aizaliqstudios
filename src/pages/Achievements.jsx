@@ -14,7 +14,7 @@ const achievements = [
   },
   {
     title: '₹25 Lakhs Funded',
-    desc: 'Seed round secured at 3% equity dilution from STPI to accelerate growth and development.',
+    desc: 'Supported & Backed by Gov. of Mizoram.',
     img: 'https://www.constructionworld.in/assets/uploads/dc6a5abc52334dae09088369ef750e23.jpg',
   },
 ];
