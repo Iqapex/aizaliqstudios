@@ -77,13 +77,15 @@ const Header = () => {
           Contact
         </Link>
 
+        <Link to="/become-member">Become a member</Link>
+
         {/* 🚀 New Auth Links */}
-        <Link to="/signup" onClick={() => setMenuOpen(false)}>
+        {/*<Link to="/signup" onClick={() => setMenuOpen(false)}>
           Signup
         </Link>
         <Link to="/signin" onClick={() => setMenuOpen(false)}>
           Signin
-        </Link>
+        </Link>*/}
       </nav>
     </header>
   );

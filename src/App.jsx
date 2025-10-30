@@ -14,13 +14,21 @@ import FuturePlans from "./pages/FuturePlans";
 import Contact from "./pages/Contact";
 
 // 🔑 Auth pages
-import Signup from "./pages/SignUp";
-import Signin from "./pages/Signin";
-import Dashboard from "./pages/Dashboard";
+//import Signup from "./pages/SignUp";
+//import Signin from "./pages/Signin";
+//import Dashboard from "./pages/Dashboard";
+//import AdminDashboard from "./pages/AdminDashboard";
 
 // Layout
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import BecomeMember from './components/BecomeMember';
+import BankPayment from './components/BankPayment';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import AdminPanel from './components/AdminPanel';
+import AdminLogin from "./components/AdminLogin";
 
 function App() {
   return (
@@ -42,11 +50,21 @@ function App() {
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/future-plans" element={<FuturePlans />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/become-member" element={<BecomeMember />} />
+          <Route path="/bank-payment" element={<BankPayment />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          {/*<Route path="/admin" element={<AdminPanel />} />*/}
 
           {/* 🔑 Auth Routes */}
-          <Route path="/signup" element={<Signup />} />
+          {/*<Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin" element={<AdminDashboard />} />*/}
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<AdminPanel />} />
+
         </Routes>
       </main>
 
