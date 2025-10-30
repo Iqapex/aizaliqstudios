@@ -79,13 +79,7 @@ const Header = () => {
 
         <Link to="/become-member">Become a member</Link>
 
-        {/* 🚀 New Auth Links */}
-        {/*<Link to="/signup" onClick={() => setMenuOpen(false)}>
-          Signup
-        </Link>
-        <Link to="/signin" onClick={() => setMenuOpen(false)}>
-          Signin
-        </Link>*/}
+        
       </nav>
     </header>
   );
