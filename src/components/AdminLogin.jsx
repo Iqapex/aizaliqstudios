@@ -6,7 +6,7 @@ import "../styles/Admin.css"; // make sure CSS file exists in /src/styles/
 const AdminLogin = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const nav = useNavigate();
-  const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const API = import.meta.env.VITE_API_URL || "https://aizaliq-studios-backend.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();

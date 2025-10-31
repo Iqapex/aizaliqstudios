@@ -26,7 +26,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/register', { ...formData, planId });
+      await axios.post('https://aizaliq-studios-backend.onrender.com/api/auth/register', { ...formData, planId });
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.message || 'Signup failed. Try again.');

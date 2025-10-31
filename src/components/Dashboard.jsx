@@ -4,7 +4,7 @@ import "../styles/Dashboard.css";
 
 export default function Dashboard() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const API = import.meta.env.VITE_API_URL || "https://aizaliq-studios-backend.onrender.com";
 
   useEffect(() => {
     const token = localStorage.getItem("token");

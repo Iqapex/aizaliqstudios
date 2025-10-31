@@ -9,7 +9,7 @@ const Login = () => {
   const [q] = useSearchParams();
   const plan = q.get("plan");
   const nav = useNavigate();
-  const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const API = import.meta.env.VITE_API_URL || "https://aizaliq-studios-backend.onrender.com";
 
   const submit = async (e) => {
     e.preventDefault();
