@@ -21,6 +21,7 @@ import Footer from "./components/Footer";
 import BecomeMember from './components/BecomeMember';
 import BankPayment from './components/BankPayment';
 import Signup from './components/Signup';
+
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import AdminPanel from './components/AdminPanel';
@@ -49,6 +50,7 @@ function App() {
           <Route path="/become-member" element={<BecomeMember />} />
           <Route path="/bank-payment" element={<BankPayment />} />
           <Route path="/signup" element={<Signup />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           
