@@ -13,11 +13,7 @@ import Achievements from "./pages/Achievements";
 import FuturePlans from "./pages/FuturePlans";
 import Contact from "./pages/Contact";
 
-// 🔑 Auth pages
-//import Signup from "./pages/SignUp";
-//import Signin from "./pages/Signin";
-//import Dashboard from "./pages/Dashboard";
-//import AdminDashboard from "./pages/AdminDashboard";
+
 
 // Layout
 import Header from "./components/Header";
@@ -55,13 +51,10 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          {/*<Route path="/admin" element={<AdminPanel />} />*/}
+          
 
           {/* 🔑 Auth Routes */}
-          {/*<Route path="/signup" element={<Signup />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/admin" element={<AdminDashboard />} />*/}
+          
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin-dashboard" element={<AdminPanel />} />
 
