@@ -5,18 +5,22 @@ import '../styles/Teams.css';
 //import bhaskar from '../assets/images/bhaskar.jpg';
 //import aritra from '../assets/images/aritra.jpg';
 //import shalini from '../assets/images/shalini.jpg';
+import IM6 from '../images/IM6.jpg';
+
 
 const team = [
   {
     name: "Arjun Dutta",
     role: "CBO & Tech Advisor",
     exp: "Exp: 4+ Years",
+     image: "https://media.licdn.com/dms/image/v2/D5603AQGXIBey3a-H6Q/profile-displayphoto-shrink_200_200/B56ZTGSg6kGsAY-/0/1738493530700?e=1764806400&v=beta&t=Mj1J4Rla7fn49VV3GjxrrW_o_uE-UyfGhgfuPggTBs8",
     //image: arjun,
   },
   {
     name: "Madhumita Sarkar Dutta",
     role: "Co-Founder & Advisor",
     exp: "Exp: 10+ Years",
+    //image: "https://media.licdn.com/dms/image/v2/D5603AQGXIBey3a-H6Q/profile-displayphoto-shrink_200_200/B56ZTGSg6kGsAY-/0/1738493530700?e=1764806400&v=beta&t=Mj1J4Rla7fn49VV3GjxrrW_o_uE-UyfGhgfuPggTBs8",
     //image: madhumita,
   },
   {
@@ -25,18 +29,18 @@ const team = [
     exp: "Jadavpur Uni, M.Tech CSE (2021-23)",
     //image: bhaskar,
   },
-  {
-    name: "Aritra Ghosh",
-    role: "AI Lead",
-    exp: "HITK",
-    //image: aritra,
-  },
-  {
+ {
+     name: 'Soma Dutta',
+     role: 'Operations',
+     experience: '7+ Years Experience',
+     image: IM6,   // Updated image path
+   },
+  /*{
     name: "Shalini Biswas",
     role: "COO",
     exp: "",
     //image: shalini,
-  },
+  },*/
 ];
 
 const Team = () => {

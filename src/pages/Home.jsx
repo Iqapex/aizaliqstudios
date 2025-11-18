@@ -12,7 +12,7 @@ import Team from '../sections/Team';
 import Achievements from '../sections/Achievements';
 import Challenges from '../sections/Challenges';
 import Impact from '../sections/Impact';
-import Ask from '../sections/Ask';
+//import Ask from '../sections/Ask';
 import Future from '../sections/Future';
 import Contact from '../sections/Contact';
 import Conclusion from '../sections/Conclusion';
@@ -31,7 +31,6 @@ const Home = () => {
       <Achievements />
       <Challenges />
       <Impact />
-      <Ask />
       <Future />
       <Contact />
       <Conclusion />
