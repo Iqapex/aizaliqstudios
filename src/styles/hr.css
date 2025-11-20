@@ -1,0 +1,106 @@
+/* =======================
+   GLOBAL PAGE WRAPPER
+======================= */
+.interview-page {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px 20px 60px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+  animation: fadeUp 0.8s ease-in-out;
+}
+
+/* Heading Styles */
+.interview-page h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1a7f5a;
+  text-align: center;
+  margin-bottom: 10px;
+  animation: slideDown 0.7s ease;
+}
+
+.interview-page p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* =======================
+   CHAT CONTAINER STYLING
+======================= */
+.aipkit-container-wrapper {
+  margin-top: 25px;
+  padding: 12px;
+  border-radius: 14px;
+  background: #f6fdfb;
+  border: 2px solid #d7f5eb;
+  box-shadow: 0 4px 24px rgba(29, 172, 120, 0.15);
+  animation: fadeUp 0.9s ease;
+}
+
+/* Chat Hover Animation */
+.aipkit-container-wrapper:hover {
+  transform: translateY(-4px) scale(1.01);
+  transition: 0.25s ease-in-out;
+  box-shadow: 0 12px 40px rgba(29, 172, 120, 0.25);
+}
+
+/* =======================
+   ANIMATIONS
+======================= */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =======================
+   RESPONSIVE DESIGN
+======================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .interview-page {
+    padding: 18px 15px;
+    margin: 25px;
+  }
+
+  .interview-page h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .interview-page {
+    margin: 10px;
+    padding: 16px 12px;
+  }
+
+  .interview-page h2 {
+    font-size: 1.7rem;
+  }
+
+  .interview-page p {
+    font-size: 1rem;
+  }
+}

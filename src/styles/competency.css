@@ -1,0 +1,208 @@
+/* src/styles/competency.css
+   Clean, responsive, animated styles for Competency Interview page
+   Target classes:
+     .interview-wrapper
+     .interview-title
+     .interview-subtext
+     .chatbox-wrapper
+     #aipkit-chatbot-container-6336  (extra positioning + z-index)
+*/
+
+/* ---------- Base layout ---------- */
+:root{
+  --bg: #f7fbfb;
+  --card-bg: #ffffff;
+  --muted: #6b7280;
+  --accent: #0f766e;
+  --accent-2: #06b6d4;
+  --glass: rgba(255,255,255,0.6);
+  --glass-border: rgba(15,118,110,0.08);
+  --shadow-1: 0 6px 24px rgba(16,24,40,0.06);
+  --shadow-2: 0 10px 40px rgba(2,6,23,0.08);
+  --radius: 14px;
+}
+
+/* Page wrapper */
+.interview-wrapper{
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 28px;
+  background: linear-gradient(180deg, var(--bg), #f4fbfb);
+  border-radius: calc(var(--radius) + 4px);
+  box-shadow: var(--shadow-1);
+  animation: pageFade 0.6s cubic-bezier(.2,.9,.3,1);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Title + subtitle */
+.interview-title{
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 2.0rem;
+  line-height: 1.05;
+  font-weight: 700;
+  color: #083344;
+  margin: 0 0 6px 0;
+  text-align: center;
+  letter-spacing: -0.2px;
+  animation: titleSlide 0.65s ease;
+}
+
+.interview-subtext{
+  margin: 0 0 20px 0;
+  font-size: 1.02rem;
+  color: var(--muted);
+  text-align: center;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+/* Chatbox wrapper - the visible "card" around the bot */
+.chatbox-wrapper{
+  margin: 18px auto 0;
+  padding: 18px;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-2);
+  min-height: 420px;           /* gives room for widget */
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+  transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s ease;
+}
+
+/* subtle hover elevation */
+.chatbox-wrapper:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 60px rgba(2,6,23,0.12);
+}
+
+/* Loading skeleton shown before bot loads (visible via .loading class) */
+.chatbox-wrapper.loading{
+  background: linear-gradient(135deg, #ffffff 0%, #f8fcfb 50%, #ffffff 100%);
+}
+
+.chatbox-wrapper.loading::after{
+  content: "";
+  position: absolute;
+  left: -40%;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));
+  transform: skewX(-20deg);
+  animation: shimmer 1.6s infinite;
+  pointer-events: none;
+}
+
+/* Place the chatbot container to be full width of card */
+#svelte, /* some libraries use other ids — keep clear */
+#aipkit-chatbot-container-6336 {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  position: relative !important;
+}
+
+/* If the embed creates a floating widget, ensure it sits above everything */
+#aipkit-chatbot-container-6336 *{
+  z-index: 999999 !important;
+}
+
+/* small utility for centering a "placeholder" text */
+.chat-placeholder{
+  color: var(--muted);
+  font-size: 0.98rem;
+  text-align: center;
+  padding: 18px;
+}
+
+/* ---------- Buttons / small controls (optional) ---------- */
+.interview-controls{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-top:16px;
+}
+
+.btn {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(6,182,212,0.12);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.btn:hover{ transform: translateY(-3px); box-shadow: 0 12px 36px rgba(6,182,212,0.16); }
+
+/* ---------- Animations ---------- */
+@keyframes titleSlide{
+  0% { transform: translateY(-10px); opacity: 0; }
+  100% { transform: translateY(0); opacity:1; }
+}
+
+@keyframes pageFade {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { left: -60%; }
+  100% { left: 160%; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px){
+  .interview-wrapper{ padding: 22px; margin: 22px; }
+  .chatbox-wrapper{ min-height: 380px; padding:16px; }
+  .interview-title{ font-size: 1.85rem; }
+  .interview-subtext{ font-size: 0.99rem; }
+}
+
+@media (max-width: 640px){
+  .interview-wrapper{ padding: 16px; margin: 14px; border-radius: 12px; }
+  .interview-title{ font-size: 1.45rem; text-align: left; }
+  .interview-subtext{ text-align: left; }
+  .chatbox-wrapper{ min-height: 360px; padding:12px; border-radius: 12px; }
+}
+
+/* ---------- Accessibility improvements ---------- */
+/* make interactive elements focus-visible */
+.btn:focus { outline: 3px solid rgba(6,182,212,0.18); outline-offset: 3px; }
+
+/* ---------- Dark mode ---------- */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #07121a;
+    --card-bg: linear-gradient(180deg, rgba(8,17,22,0.9), rgba(6,10,15,0.9));
+    --muted: #9aa6ad;
+    --accent: #22c1a7;
+    --accent-2: #06b6d4;
+    --glass-border: rgba(255,255,255,0.04);
+    --shadow-1: 0 8px 30px rgba(0,0,0,0.5);
+    --shadow-2: 0 12px 50px rgba(0,0,0,0.6);
+  }
+
+  .interview-wrapper{
+    background: linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.75));
+    color: #e6f7f4;
+  }
+
+  .interview-title{ color: #dffcf4; }
+  .interview-subtext{ color: #bcdcdc; }
+  .chatbox-wrapper{ background: rgba(10,14,16,0.5); border: 1px solid var(--glass-border); box-shadow: var(--shadow-1); }
+  .btn{ box-shadow: 0 8px 28px rgba(34,193,167,0.12); }
+}
+
+/* ---------- Optional small helpers ---------- */
+/* centered container for small screens */
+.centered {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}

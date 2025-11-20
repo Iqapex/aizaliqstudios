@@ -14,6 +14,10 @@ import FuturePlans from "./pages/FuturePlans";
 import Contact from "./pages/Contact";
 
 
+import DomainInterview from "./pages/interviews/DomainInterview";
+import CompetencyInterview from "./pages/interviews/CompetencyInterview";
+import HRInterview from "./pages/interviews/HRInterview";
+
 
 // Layout
 import Header from "./components/Header";
@@ -53,10 +57,16 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          
+
+
+          {/* Interview Pages */}
+          <Route path="/interview/domain" element={<DomainInterview />} />
+          <Route path="/interview/competency" element={<CompetencyInterview />} />
+          <Route path="/interview/hr" element={<HRInterview />} />
+
 
           {/* 🔑 Auth Routes */}
-          
+
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin-dashboard" element={<AdminPanel />} />
 
